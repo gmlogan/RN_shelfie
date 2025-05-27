@@ -8,11 +8,6 @@ const about = () => {
       <Text style={styles.text}>About</Text>
       {/* This is the about page */}
       <Text>about page</Text>
-      <Link
-        href="/"
-        style={styles.link}>
-        Go to Home
-      </Link>
     </View>
   );
 };

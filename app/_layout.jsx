@@ -4,11 +4,29 @@ import { Slot, Stack } from "expo-router";
 
 const RootLayout = () => {
   return (
-    <View style={{ flex: 1 }}>
-      {/* <Slot/> adds a simple outlet for page content into layout */}
-      <Stack />
-      <Text style={{ marginBottom: 20, textAlign: "center" }}> Footer</Text>
-    </View>
+    <>
+      {/* <Slot/> adds a simple outlet for page content into layout.
+      No <View> needed as each page has a view and will be injected to the 'stack'  */}
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: "#ddd" },
+          headerTintColor: "#333",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}>
+        <Stack.Screen
+          name="index"
+          options={{ title: "Home", headerShown: false }}
+        />
+        <Stack.Screen
+          name="about"
+          options={{ title: "About" }}
+        />
+        <Stack.Screen
+          name="contact"
+          options={{ title: "Contact Us" }}
+        />
+      </Stack>
+    </>
   );
 };
 

@@ -8,11 +8,6 @@ const Contact = () => {
       <Text style={styles.text}>Contact</Text>
       {/* This is the about page */}
       <Text>contact page</Text>
-      <Link
-        href="/"
-        style={styles.link}>
-        Go to Home
-      </Link>
     </View>
   );
 };
