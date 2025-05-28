@@ -1,29 +1,39 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
-import Logo from "../assets/img/logo_light.png"; // Assuming you have a logo image in the assets folder
+import { StyleSheet } from "react-native";
 import { Link } from "expo-router";
+
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={Logo}
-        style={styles.img}
-      />
-      <Text style={styles.text}>The Number 1</Text>
-      {/*styles object*/}
-      <Text style={{ marginTop: 10, marginBottom: 30 }}>Reading List App</Text>
-      {/*inline styles*/}
+    <ThemedView style={styles.container}>
+      <ThemedLogo />
+      <Spacer />
+
+      <ThemedText
+        style={styles.title}
+        title={true}>
+        The Number 1
+      </ThemedText>
+
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Reading List App
+      </ThemedText>
+
       <Link
         href="/about"
         style={styles.link}>
-        About Page
+        <ThemedText>About Page</ThemedText>
       </Link>
+
       <Link
         href="/contact"
         style={styles.link}>
-        Contact Page
+        <ThemedText>Contact Page</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -35,17 +45,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  text: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-
   img: {
     marginVertical: 20,
   },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
   link: {
-    marginTop: 20,
-    color: "blue",
-    textDecorationLine: "underline",
+    marginVertical: 10,
+    borderBottomWidth: 1,
   },
 });
